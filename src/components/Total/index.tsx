@@ -19,18 +19,14 @@ const TotalValue = styled.span`
     font-weight: bold;
 `
 
-type TotalProps = {
-    userName: string;
-}
-
-export const Total = ({ userName} : TotalProps) => {
+export const Total = () => {
     return(
         <Container>
             <ContainerRow>
                 <Message>Total</Message>
                 <TotalValue>R$ 100.00</TotalValue>
             </ContainerRow>
-            <TotalMessage userName={userName} />
+            <TotalMessage/>
         </Container>
     )
 }

@@ -1,16 +1,14 @@
-import { useState } from 'react'
 import { Checkout } from "./components/Checkout";
+import { useUser } from './context/UserContext';
 
 function App() {
-  const [user, setUser] = useState({
-    name: "Wagner"
-  })
+  const user = useUser()
 
   return (
 
       <div className="App">
         <p>Seja bem vindo {user.name}</p>
-        <Checkout userName={user.name}/>
+        <Checkout/>
 
       </div>
        

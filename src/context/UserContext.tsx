@@ -2,6 +2,7 @@ import { Children, createContext, useState, useContext } from "react";
 
 interface IUserContext{
     name: string;
+    updateUserName(name: string): void;
 }
 
 const UserContext = createContext<IUserContext | undefined>(undefined)
@@ -12,10 +13,26 @@ type UserProviderProps = {
 
 export const UserProvider = ({children}: UserProviderProps) => {
     const [user, setUser] = useState({
-        name: "Maria",
+        name: "Wagner",
     })
+
+    function updateUserName(name: string){
+        if(name === "Suarez"){
+            setUser({
+                name: "Nome proibido",
+            });
+            return;
+        }
+        
+        setUser({
+            name: name,
+        });
+    }
+
+
+
     return(
-        <UserContext.Provider value={user}>{children}</UserContext.Provider>
+        <UserContext.Provider value={{...user, updateUserName }}>{children}</UserContext.Provider>
     )
 }
 

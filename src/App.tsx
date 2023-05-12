@@ -8,10 +8,11 @@ function App() {
   return (
 
       <div className="App">
-        <p>Seja bem vindo {user.name}</p>
+        <p>Seja bem vindo {user.state.name}</p>
+        <small>Seu token é: {user.state.token}</small>
+        <p>Você clickou no botão {user.state.totalClicks} vezes</p>
         <Checkout/>
         <Profile />
-
       </div>
        
 

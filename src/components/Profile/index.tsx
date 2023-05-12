@@ -23,10 +23,37 @@ export const Profile = () => {
             <Message>
                Olá, seja bem vindo ao seu profile
             </Message>
-            <InputName  value={user.name} onChange={ev => {
-                user.updateUserName(ev.target.value);
+            <InputName
+              value={user.state.name}
+              onChange={ev => {
+                //user.updateUserName(ev.target.value);
+                user.dispatch({
+                    type: "update_name",
+                    newName: ev.target.value,
+                });
             }}
         />
+        <button
+            onClick={() => {
+                user.dispatch({
+                    type: "update_token",
+                    newToken: "NOVO_TOKEN_B1C2G6K3",
+                });
+            }}
+        >
+            Atualizar o token
+        </button>
+
+        <button
+            onClick={() => {
+                user.dispatch({
+                    type: "increment_clicks"
+                });
+
+            }}
+        >
+            Adicionar click ao contador
+        </button>
         </Container>
     )
 }

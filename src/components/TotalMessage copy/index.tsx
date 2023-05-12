@@ -11,12 +11,12 @@ const Message = styled.p`
 `
 
 export const TotalMessage = () => {
-    const user = useUser();
+    const context = useUser();
 
     return(
         <Container>
             <Message>
-                {user.state.name}, o valor da sua compra ultrapassou R$100.00, você tem 5% de 
+                {context?.name}, o valor da sua compra ultrapassou R$100.00, você tem 5% de 
                 desconto.
             </Message>
 
